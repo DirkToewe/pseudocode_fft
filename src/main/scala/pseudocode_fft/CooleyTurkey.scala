@@ -12,7 +12,7 @@ object CooleyTurkey:
 
   def fft( u: Array[Complex[Double]] ): Array[Complex[Double]] =
 
-    val n = u.length; require(bitCount(n) == 1)
+    require(bitCount(u.length) == 1)
     val v = bitReversalPermutation(u)
 
     def fft( off: Int, n: Int ): Unit =
@@ -34,15 +34,14 @@ object CooleyTurkey:
 
     end fft
 
-    fft(0,n)
+    fft(0,v.length)
     return v
 
   end fft
 
 
   def ifft( u: Array[Complex[Double]] ): Array[Complex[Double]] =
-
-    val n = u.length; require(bitCount(n) == 1)
+    require(bitCount(u.length) == 1)
     val v = bitReversalPermutation(u)
 
     def ifft( off: Int, n: Int ): Unit =
@@ -64,9 +63,9 @@ object CooleyTurkey:
 
     end ifft
 
-    ifft(0,n)
+    ifft(0,v.length)
 
-    for i <- v.indices do v(i) /= n
+    for i <- v.indices do v(i) /= v.length
 
     return v
 
