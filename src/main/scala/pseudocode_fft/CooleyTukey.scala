@@ -8,7 +8,7 @@ import spire.math.Complex.rootOfUnity
 import java.lang.Integer.bitCount
 
 
-object CooleyTurkey:
+object CooleyTukey:
 
   def fft( u: Array[Complex[Double]] ): Array[Complex[Double]] =
 
@@ -71,4 +71,4 @@ object CooleyTurkey:
 
   end ifft
 
-end CooleyTurkey
+end CooleyTukey
